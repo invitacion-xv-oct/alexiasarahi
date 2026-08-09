@@ -1,0 +1,748 @@
+/* ================================================================
+   INVITACIÓN XV AÑOS — ALEXIA SARAHÍ
+   Mobile-first · Static hosting ready
+   ================================================================ */
+
+/* ── TOKENS ─────────────────────────────────────────────────── */
+:root {
+  --navy-deep:  #060f2a;
+  --navy:       #0d1f4e;
+  --navy-mid:   #1a3470;
+  --silver:     #c2d0e4;
+  --silver-dim: rgba(194, 208, 228, 0.55);
+  --gold:       #c8a96e;
+  --pearl:      #f4f7fd;
+  --pearl-dark: #e8edf8;
+  --white:      #ffffff;
+  --text-dark:  #0d1b3a;
+  --text-muted: #5a6e8a;
+
+  --ff-display: 'Cinzel Decorative', serif;
+  --ff-title:   'Cinzel', serif;
+  --ff-body:    'Lato', sans-serif;
+
+  --radius-card: 18px;
+  --max-w:       540px;
+  --section-py:  5rem;
+}
+
+/* ── RESET ───────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  background: var(--navy-deep);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+time { font-style: normal; }
+
+/* ── SHARED UTILITIES ────────────────────────────────────────── */
+.section-inner {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.label-small {
+  font-family: var(--ff-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.divider-ornament {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin: 1rem 0;
+  opacity: 0.5;
+}
+
+/* ── SCROLL REVEAL ───────────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn-outline {
+  display: inline-block;
+  padding: 0.8rem 2.4rem;
+  border: 1.5px solid var(--silver-dim);
+  border-radius: 40px;
+  font-family: var(--ff-title);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--white);
+  background: transparent;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--silver-dim);
+  border-color: var(--silver);
+  color: var(--navy-deep);
+  outline: none;
+}
+
+/* ================================================================
+   1. HERO
+================================================================ */
+#hero {
+  position: relative;
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+
+#starsCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-silhouette {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: clamp(130px, 38vw, 220px);
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 2.5rem 2rem 6rem;
+  text-align: center;
+  animation: heroFadeIn 1.4s ease both;
+}
+
+/* Monogram */
+.monogram-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.monogram-crown {
+  font-size: 1.5rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: -0.25rem;
+  filter: drop-shadow(0 0 10px rgba(200,169,110,0.7));
+  animation: crownPulse 3s ease-in-out infinite;
+}
+.monogram-letters {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  width: clamp(88px, 20vw, 110px);
+  height: clamp(88px, 20vw, 110px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(194, 208, 228, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(194, 208, 228, 0.1), inset 0 0 20px rgba(194, 208, 228, 0.04);
+}
+
+.hero-subtitle {
+  font-family: var(--ff-body);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: var(--silver);
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+
+.hero-name {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 9vw, 4rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  text-shadow: 0 2px 24px rgba(194, 208, 228, 0.3);
+  text-wrap: balance;
+}
+
+.hero-date {
+  font-family: var(--ff-title);
+  font-size: 0.82rem;
+  letter-spacing: 0.35em;
+  color: var(--silver);
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--silver-dim);
+  font-size: 1rem;
+  animation: bounce 2.2s ease-in-out infinite;
+}
+
+/* ================================================================
+   2. PADRES Y MADRINA
+================================================================ */
+#padres {
+  position: relative;
+  padding: var(--section-py) 0;
+  background: var(--pearl);
+  overflow: hidden;
+}
+
+.botanical {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+}
+.botanical--tl { top: -20px; left: -20px; }
+.botanical--br { bottom: -20px; right: -20px; }
+
+.padres-intro {
+  font-family: var(--ff-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+}
+
+.parent-name {
+  font-family: var(--ff-title);
+  font-size: clamp(1rem, 4vw, 1.35rem);
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.madrina-name {
+  font-family: var(--ff-title);
+  font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+  font-weight: 600;
+  color: var(--navy-mid);
+  letter-spacing: 0.04em;
+}
+
+/* ================================================================
+   3. CUENTA REGRESIVA
+================================================================ */
+#countdown {
+  padding: var(--section-py) 1.5rem;
+  background: var(--navy);
+  text-align: center;
+}
+
+.countdown-date {
+  font-family: var(--ff-title);
+  font-size: 0.82rem;
+  letter-spacing: 0.35em;
+  color: var(--silver);
+  margin-bottom: 0.4rem;
+}
+.countdown-label {
+  font-family: var(--ff-body);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(194, 208, 228, 0.6);
+  margin-bottom: 2.2rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(194, 208, 228, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.cnum {
+  font-family: var(--ff-title);
+  font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.cunit {
+  font-family: var(--ff-body);
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--silver-dim);
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   4. HORARIO Y UBICACIÓN
+================================================================ */
+#horario {
+  padding: var(--section-py) 0;
+  background: var(--pearl);
+}
+
+.horario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 360px;
+  margin: 0 auto 1.2rem;
+  padding: 0 1.5rem;
+}
+
+.horario-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.6rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--pearl-dark);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 24px rgba(13, 31, 78, 0.07);
+}
+.horario-card i {
+  font-size: 2rem;
+  color: var(--navy);
+}
+.horario-card h3 {
+  font-family: var(--ff-title);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+}
+.horario-card time {
+  font-family: var(--ff-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy-mid);
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: calc(var(--max-w) - 3rem);
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem;
+  background: var(--navy);
+  border-radius: var(--radius-card);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle shimmer strip */
+.location-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(194,208,228,0.05) 0%,
+    transparent 60%);
+  pointer-events: none;
+}
+
+.location-top {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.location-top > i {
+  font-size: 1.6rem;
+  color: var(--silver);
+  flex-shrink: 0;
+}
+.location-top h3 {
+  font-family: var(--ff-title);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+.location-top p {
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  color: var(--silver-dim);
+  text-align: left;
+  margin-top: 0.15rem;
+}
+
+.btn-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.6rem;
+  border: 1.5px solid rgba(194, 208, 228, 0.4);
+  border-radius: 30px;
+  font-family: var(--ff-title);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--white);
+  transition: background 0.3s, border-color 0.3s;
+}
+.btn-map:hover,
+.btn-map:focus-visible {
+  background: rgba(194, 208, 228, 0.15);
+  border-color: var(--silver);
+  outline: none;
+}
+
+/* ================================================================
+   5. ITINERARIO
+================================================================ */
+#itinerario {
+  padding: var(--section-py) 1.5rem;
+  background: var(--navy-deep);
+}
+
+.section-title {
+  font-family: var(--ff-title);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--silver);
+  margin-bottom: 2.8rem;
+}
+
+/* Mobile: vertical */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.tl-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.tl-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(194, 208, 228, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--silver);
+  font-size: 1.05rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+.tl-item:hover .tl-icon {
+  background: rgba(194, 208, 228, 0.1);
+  border-color: var(--silver-dim);
+}
+.tl-time {
+  font-family: var(--ff-title);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--silver-dim);
+  font-variant-numeric: tabular-nums;
+}
+.tl-event {
+  font-family: var(--ff-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--white);
+}
+
+.tl-connector {
+  width: 2px;
+  height: 28px;
+  background: rgba(194, 208, 228, 0.18);
+  border-radius: 2px;
+}
+
+/* ================================================================
+   6. CÓDIGO DE VESTIMENTA
+================================================================ */
+#vestimenta {
+  padding: var(--section-py) 1.5rem;
+  /* Split: left dark navy, right silk-blue effect */
+  background: linear-gradient(
+    135deg,
+    var(--navy) 0%,
+    var(--navy) 55%,
+    #1c3260 55%,
+    #243d72 100%
+  );
+}
+
+.vestimenta-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  text-align: center;
+}
+
+.vestimenta-icon-col { display: flex; justify-content: center; }
+.dress-icon {
+  width: clamp(70px, 18vw, 100px);
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(194,208,228,0.25));
+}
+
+.vestimenta-text-col { display: flex; flex-direction: column; align-items: center; }
+.vestimenta-text-col .label-small {
+  color: var(--silver-dim);
+  margin-top: 0;
+}
+.vestimenta-tipo {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  margin: 0.4rem 0;
+}
+.vestimenta-nota {
+  font-family: var(--ff-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--silver-dim);
+  line-height: 1.7;
+}
+
+/* ================================================================
+   7. REGALOS
+================================================================ */
+#regalos {
+  padding: var(--section-py) 0;
+  background: var(--pearl);
+}
+
+#regalos .section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.regalo-icon-wrap {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.regalo-icon-wrap i { font-size: 1.9rem; color: var(--silver); }
+
+.regalo-text {
+  font-family: var(--ff-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+/* ================================================================
+   8. CONFIRMAR ASISTENCIA
+================================================================ */
+#confirmar {
+  padding: var(--section-py) 1.5rem;
+  background: var(--navy);
+  text-align: center;
+}
+
+.confirmar-icon {
+  display: block;
+  font-size: 2.4rem;
+  color: var(--silver-dim);
+  margin-bottom: 1rem;
+}
+.confirmar-title {
+  font-family: var(--ff-title);
+  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  margin-bottom: 1.8rem;
+  text-wrap: balance;
+}
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-wa:hover,
+.btn-wa:focus-visible {
+  background: rgba(37, 211, 102, 0.15);
+  border-color: #25d366;
+  color: var(--white);
+}
+.btn-wa .fab { font-size: 1.1rem; }
+
+/* ================================================================
+   9. FOOTER
+================================================================ */
+#footer {
+  padding: 3.5rem 1.5rem;
+  background: var(--navy-deep);
+  text-align: center;
+  border-top: 1px solid rgba(194, 208, 228, 0.08);
+}
+.footer-deco {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+  opacity: 0.75;
+}
+.footer-text {
+  font-family: var(--ff-body);
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--silver-dim);
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+.footer-sig {
+  font-family: var(--ff-title);
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: rgba(194, 208, 228, 0.3);
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   KEYFRAMES
+================================================================ */
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes crownPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(200,169,110,0.5)); }
+  50%       { filter: drop-shadow(0 0 16px rgba(200,169,110,0.9)); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
+
+/* ================================================================
+   RESPONSIVE — tablet / desktop
+================================================================ */
+@media (min-width: 500px) {
+  .cnum { font-size: 2.6rem; }
+  .cunit { font-size: 0.55rem; }
+  .countdown-grid { gap: 0.8rem; }
+}
+
+@media (min-width: 680px) {
+  /* Timeline goes horizontal on wider screens */
+  .timeline {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .tl-item {
+    flex: 1;
+    max-width: 110px;
+  }
+  .tl-connector {
+    width: 40px;
+    height: 2px;
+    margin-top: 26px; /* align with center of icon */
+    align-self: flex-start;
+  }
+
+  /* Vestimenta side by side */
+  .vestimenta-inner {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    text-align: left;
+  }
+  .vestimenta-text-col { align-items: flex-start; }
+  .vestimenta-text-col .label-small { margin-top: 0; }
+}
+
+@media (min-width: 768px) {
+  :root { --section-py: 6rem; }
+  .hero-silhouette { width: 240px; }
+  .location-card { flex-direction: row; justify-content: space-between; text-align: left; }
+  .location-card .location-top { flex: 1; }
+}
