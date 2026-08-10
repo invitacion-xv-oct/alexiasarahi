@@ -21,41 +21,12 @@
   <section id="hero">
     <canvas id="starsCanvas" aria-hidden="true"></canvas>
 
-    <!-- Silhouette decorativa -->
-    <div class="hero-silhouette" aria-hidden="true">
-      <svg viewBox="0 0 160 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
-        <defs>
-          <radialGradient id="gownGrad" cx="50%" cy="60%" r="50%">
-            <stop offset="0%" stop-color="#c2d0e4" stop-opacity="0.18"/>
-            <stop offset="100%" stop-color="#1a3470" stop-opacity="0.05"/>
-          </radialGradient>
-        </defs>
-        <!-- Hair bun / updo -->
-        <ellipse cx="80" cy="36" rx="18" ry="13" fill="rgba(194,208,228,0.28)"/>
-        <circle cx="80" cy="32" r="8" fill="rgba(194,208,228,0.2)"/>
-        <!-- Head -->
-        <circle cx="80" cy="56" r="20" fill="rgba(194,208,228,0.22)"/>
-        <!-- Neck -->
-        <rect x="74" y="74" width="12" height="14" rx="6" fill="rgba(194,208,228,0.18)"/>
-        <!-- Shoulders / bodice top -->
-        <path d="M 44 88 Q 30 95 28 115 L 132 115 Q 130 95 116 88 Q 98 80 80 82 Q 62 80 44 88 Z" fill="rgba(194,208,228,0.18)"/>
-        <!-- Bodice -->
-        <path d="M 28 115 Q 26 138 30 155 L 130 155 Q 134 138 132 115 Z" fill="rgba(194,208,228,0.15)"/>
-        <!-- Ball gown skirt — main volume -->
-        <path d="M 30 155 Q 0 210 0 280 Q 0 340 4 390 L 156 390 Q 160 340 160 280 Q 160 210 130 155 Z" fill="url(#gownGrad)"/>
-        <!-- Skirt left layer -->
-        <path d="M 30 160 Q 8 218 6 285 Q 4 340 6 385 L 52 385 Q 50 340 52 285 Q 54 220 60 165 Z" fill="rgba(194,208,228,0.07)"/>
-        <!-- Skirt right layer -->
-        <path d="M 130 160 Q 152 218 154 285 Q 156 340 154 385 L 108 385 Q 110 340 108 285 Q 106 220 100 165 Z" fill="rgba(194,208,228,0.07)"/>
-        <!-- Skirt center shimmer -->
-        <path d="M 68 158 Q 60 210 60 280 Q 60 340 62 385 L 98 385 Q 100 340 100 280 Q 100 210 92 158 Z" fill="rgba(194,208,228,0.05)"/>
-      </svg>
-    </div>
+    <!-- Silhouette decorativa (oculta, se mantiene por si se necesita) -->
+    <div class="hero-silhouette" aria-hidden="true"></div>
 
     <div class="hero-content">
       <div class="monogram-wrap">
-        <span class="monogram-crown" aria-hidden="true">♛</span>
-        <span class="monogram-letters">AS</span>
+        <img src="./images/monograma-as-corona.svg" class="monogram-svg" alt="Monograma AS">
       </div>
       <p class="hero-subtitle">Mis XV años</p>
       <h1 class="hero-name">Alexia Sarahí</h1>
@@ -72,6 +43,7 @@
        2. PADRES Y MADRINA
   ══════════════════════════════════════ -->
   <section id="padres">
+
     <div class="section-inner fade-in">
       <p class="padres-intro">Con la bendición de Dios y el amor de mis padres</p>
       <h2 class="parent-name">Magdiel Iván Martínez Velázquez</h2>
@@ -116,33 +88,38 @@
   <section id="horario">
     <div class="section-inner">
       <div class="horario-grid fade-in">
-        <div class="horario-card">
-          <i class="fas fa-church" aria-hidden="true"></i>
-          <h3>Ceremonia</h3>
-          <time datetime="2026-10-10T18:00">6:00 PM</time>
-        </div>
-        <div class="horario-card">
-          <i class="fas fa-champagne-glasses" aria-hidden="true"></i>
-          <h3>Recepción</h3>
-          <time datetime="2026-10-10T20:30">8:30 PM</time>
-        </div>
-      </div>
 
-      <div class="location-card fade-in">
-        <div class="location-top">
-          <i class="fas fa-location-dot" aria-hidden="true"></i>
-          <div>
-            <h3>Salón Jardín Nova Cartago</h3>
-            <p>Ozumba</p>
-          </div>
+        <!-- Ceremonia -->
+        <div class="horario-card">
+          <img src="./images/iglesia.svg" class="horario-svg-icon" alt="" aria-hidden="true">
+          <h3>Ceremonia</h3>
+          <div class="horario-divider" aria-hidden="true">✦</div>
+          <time datetime="2026-10-10T18:00">6:00 PM</time>
+          <!-- ⚠️ REEMPLAZA con la URL de Google Maps de la iglesia -->
+          <a href="#" class="btn-mapa" target="_blank" rel="noopener">
+            <i class="fas fa-location-dot" aria-hidden="true"></i>
+            VER MAPA
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          </a>
         </div>
-        <!-- ⚠️  REEMPLAZA la URL de Google Maps con la dirección exacta del salón -->
-        <a href="https://maps.google.com/?q=Salon+Jardin+Nova+Cartago+Ozumba+Estado+de+Mexico"
-           target="_blank" rel="noopener"
-           class="btn-map">
-          <i class="fas fa-location-dot" aria-hidden="true"></i>
-          VER UBICACIÓN
-        </a>
+
+        <!-- Recepción -->
+        <div class="horario-card">
+          <img src="./images/brindis.svg" class="horario-svg-icon" alt="" aria-hidden="true">
+          <h3>Recepción</h3>
+          <div class="horario-divider" aria-hidden="true">✦</div>
+          <time datetime="2026-10-10T20:30">8:30 PM</time>
+          <p class="horario-venue">Salón Jardín Nova Cartago</p>
+          <p class="horario-city">Ozumba</p>
+          <!-- ⚠️ REEMPLAZA con la URL real de Google Maps del salón -->
+          <a href="https://maps.google.com/?q=Salon+Jardin+Nova+Cartago+Ozumba+Estado+de+Mexico"
+             class="btn-mapa" target="_blank" rel="noopener">
+            <i class="fas fa-location-dot" aria-hidden="true"></i>
+            VER MAPA
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -155,31 +132,31 @@
       <h2 class="section-title fade-in">✦ Itinerario ✦</h2>
       <div class="timeline" role="list">
         <div class="tl-item fade-in" role="listitem">
-          <div class="tl-icon"><i class="fas fa-church" aria-hidden="true"></i></div>
+          <img src="./images/iglesia.svg" class="tl-icon-svg" aria-hidden="true">
           <time class="tl-time">6:00 PM</time>
           <span class="tl-event">Misa</span>
         </div>
         <div class="tl-connector" aria-hidden="true"></div>
         <div class="tl-item fade-in" role="listitem">
-          <div class="tl-icon"><i class="fas fa-champagne-glasses" aria-hidden="true"></i></div>
+          <img src="./images/brindis.svg" class="tl-icon-svg" aria-hidden="true">
           <time class="tl-time">8:30 PM</time>
           <span class="tl-event">Recepción</span>
         </div>
         <div class="tl-connector" aria-hidden="true"></div>
         <div class="tl-item fade-in" role="listitem">
-          <div class="tl-icon"><i class="fas fa-utensils" aria-hidden="true"></i></div>
+          <img src="./images/comida.svg" class="tl-icon-svg" aria-hidden="true">
           <time class="tl-time">9:00 PM</time>
           <span class="tl-event">Cena</span>
         </div>
         <div class="tl-connector" aria-hidden="true"></div>
         <div class="tl-item fade-in" role="listitem">
-          <div class="tl-icon"><i class="fas fa-music" aria-hidden="true"></i></div>
+          <img src="./images/baile.svg" class="tl-icon-svg" aria-hidden="true">
           <time class="tl-time">10:00 PM</time>
           <span class="tl-event">Vals</span>
         </div>
         <div class="tl-connector" aria-hidden="true"></div>
         <div class="tl-item fade-in" role="listitem">
-          <div class="tl-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
+          <img src="./images/fiesta.svg" class="tl-icon-svg" aria-hidden="true">
           <time class="tl-time">10:30 PM</time>
           <span class="tl-event">Fiesta</span>
         </div>
@@ -193,23 +170,7 @@
   <section id="vestimenta">
     <div class="vestimenta-inner fade-in">
       <div class="vestimenta-icon-col">
-        <!-- Vestido SVG minimalista -->
-        <svg class="dress-icon" viewBox="0 0 80 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g fill="rgba(194,208,228,0.85)" stroke="rgba(194,208,228,0.3)" stroke-width="0.5">
-            <!-- Hombros / escote -->
-            <path d="M 18 20 Q 10 28 8 42 L 72 42 Q 70 28 62 20 Q 50 12 40 14 Q 30 12 18 20 Z"/>
-            <!-- Cuerpo -->
-            <path d="M 8 42 Q 6 58 8 72 L 72 72 Q 74 58 72 42 Z"/>
-            <!-- Falda voluminosa -->
-            <path d="M 8 72 Q 0 100 0 125 L 80 125 Q 80 100 72 72 Z"/>
-          </g>
-          <!-- Corset detail lines -->
-          <g stroke="rgba(194,208,228,0.3)" stroke-width="0.8" fill="none">
-            <path d="M 36 44 Q 35 58 36 70"/>
-            <path d="M 40 44 Q 40 58 40 70"/>
-            <path d="M 44 44 Q 45 58 44 70"/>
-          </g>
-        </svg>
+        <img src="./images/vestimenta-formal.svg" class="vestimenta-svg-icon" alt="" aria-hidden="true">
       </div>
       <div class="vestimenta-text-col">
         <p class="label-small">Código de vestimenta</p>
@@ -224,10 +185,14 @@
   ══════════════════════════════════════ -->
   <section id="regalos">
     <div class="section-inner fade-in">
-      <div class="regalo-icon-wrap" aria-hidden="true">
-        <i class="fas fa-gift"></i>
+      <img src="./images/sobre-magico.svg" class="section-svg-icon" alt="" aria-hidden="true">
+      <p class="regalo-label">MESA DE REGALOS</p>
+      <h2 class="regalo-titulo">Lluvia de sobres</h2>
+      <div class="regalo-divider" aria-hidden="true">
+        <span></span><i class="regalo-divider-gem">✦</i><span></span>
       </div>
-      <p class="regalo-text">Tu presencia es mi mejor regalo.<br>Si deseas tener un detalle conmigo,<br>habrá un buzón el día del evento.</p>
+      <p class="regalo-texto">Tu presencia hará este día aún más especial.</p>
+      <p class="regalo-texto">Si deseas obsequiarme un detalle, podrás participar<br>en la lluvia de sobres durante la celebración.</p>
     </div>
   </section>
 
@@ -236,9 +201,9 @@
   ══════════════════════════════════════ -->
   <section id="confirmar">
     <div class="section-inner fade-in">
-      <i class="fas fa-envelope confirmar-icon" aria-hidden="true"></i>
+      <img src="./images/sobre-magico.svg" class="section-svg-icon confirmar-svg-icon" alt="" aria-hidden="true">
       <h2 class="confirmar-title">Confirma tu asistencia</h2>
-      <!-- ⚠️  REEMPLAZA 521XXXXXXXXXX con tu número de WhatsApp (código de país + número, sin +, sin espacios -->
+      <!-- ⚠️  REEMPLAZA 521XXXXXXXXXX con tu número de WhatsApp (código de país + número, sin +, sin espacios) -->
       <a href="https://wa.me/5527367255?text=Hola%20Alexia%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20a%C3%B1os%20el%2010%20de%20octubre"
          target="_blank" rel="noopener"
          class="btn-outline btn-wa">
