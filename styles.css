@@ -116,7 +116,10 @@ time { font-style: normal; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--navy-deep);
+  background-image: url('./images/bakc-main.jpeg');
+  background-size: cover;
+  background-position: top left;
+  background-repeat: no-repeat;
 }
 
 #starsCanvas {
@@ -228,7 +231,7 @@ time { font-style: normal; }
 #padres {
   position: relative;
   padding: var(--section-py) 0;
-  background-image: url('./images/back-white.jpeg');
+  background-image: url('./images/back-b.jpeg');
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -277,7 +280,10 @@ time { font-style: normal; }
 ================================================================ */
 #countdown {
   padding: var(--section-py) 1.5rem;
-  background: var(--navy);
+  background-image: url('./images/back-c.jpeg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
   text-align: center;
 }
 
@@ -342,7 +348,10 @@ time { font-style: normal; }
 ================================================================ */
 #horario {
   padding: var(--section-py) 0;
-  background: var(--pearl);
+  background-image: url('./images/back-d.jpeg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .horario-grid {
@@ -531,13 +540,10 @@ time { font-style: normal; }
 #vestimenta {
   padding: var(--section-py) 1.5rem;
   /* Split: left dark navy, right silk-blue effect */
-  background: linear-gradient(
-    135deg,
-    var(--navy) 0%,
-    var(--navy) 55%,
-    #1c3260 55%,
-    #243d72 100%
-  );
+  background-image: url('./images/back-e.jpeg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .vestimenta-inner {
@@ -584,7 +590,10 @@ time { font-style: normal; }
 ================================================================ */
 #regalos {
   padding: var(--section-py) 0;
-  background: var(--pearl);
+  background-image: url('./images/back-f.jpeg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 #regalos .section-inner {
