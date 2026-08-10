@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" role="img" aria-label="Paquete de iconos para XV años">
+<rect width="1400" height="720" fill="#eef5ff"/>
+<g font-family="Arial, sans-serif" font-size="25" text-anchor="middle" fill="#09265b">
+  <g transform="translate(20 35)"><image href="iglesia.svg" width="240" height="240"/><text x="120" y="275">Iglesia</text></g>
+  <g transform="translate(300 35)"><image href="brindis.svg" width="240" height="240"/><text x="120" y="275">Brindis</text></g>
+  <g transform="translate(580 35)"><image href="ubicacion.svg" width="240" height="240"/><text x="120" y="275">Ubicación</text></g>
+  <g transform="translate(860 35)"><image href="itinerario.svg" width="240" height="240"/><text x="120" y="275">Itinerario</text></g>
+  <g transform="translate(1140 35)"><image href="baile.svg" width="240" height="240"/><text x="120" y="275">Baile</text></g>
+  <g transform="translate(20 375)"><image href="comida.svg" width="240" height="240"/><text x="120" y="275">Comida</text></g>
+  <g transform="translate(300 375)"><image href="fiesta.svg" width="240" height="240"/><text x="120" y="275">Fiesta</text></g>
+  <g transform="translate(580 375)"><image href="sobre-magico.svg" width="240" height="240"/><text x="120" y="275">Sobre mágico</text></g>
+  <g transform="translate(860 375)"><image href="regalo.svg" width="240" height="240"/><text x="120" y="275">Regalo</text></g>
+  <g transform="translate(1140 375)"><image href="vestimenta-formal.svg" width="240" height="240"/><text x="120" y="275">Vestimenta formal</text></g>
+</g>
+</svg>

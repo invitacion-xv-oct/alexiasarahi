@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1700" role="img" aria-labelledby="title desc">
+  <title id="title">Identidad completa de los XV años de Alexia Sarahí</title>
+  <desc id="desc">Corona y monograma AS acompañados por Mis XV años, el nombre Alexia Sarahí y un divisor estrellado.</desc>
+  <defs>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.2" stop-color="#aebbd0"/>
+      <stop offset="0.45" stop-color="#f8fbff"/>
+      <stop offset="0.7" stop-color="#7586a3"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="ice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eaf8ff"/>
+      <stop offset="0.5" stop-color="#79c9ff"/>
+      <stop offset="1" stop-color="#1c5fc2"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#041a45" flood-opacity=".58"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g transform="translate(385 35) scale(.78)">
+    <path d="M400 18l9 31 31 9-31 9-9 31-9-31-31-9 31-9z" fill="#fff" filter="url(#glow)"/>
+    <g fill="none" stroke="url(#silver)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
+      <path d="M170 304Q400 250 630 304"/>
+      <path d="M190 289l26-120 86 83 98-151 98 151 86-83 26 120"/>
+      <path d="M216 169q38-44 75 4M302 252q46-56 92 0M406 252q46-56 92 0M509 173q38-48 75-4"/>
+      <circle cx="216" cy="169" r="15" fill="url(#ice)"/>
+      <circle cx="400" cy="101" r="19" fill="url(#ice)"/>
+      <circle cx="584" cy="169" r="15" fill="url(#ice)"/>
+      <path d="M400 118l35 52-35 48-35-48z" fill="url(#ice)"/>
+      <path d="M172 306q228 55 456 0"/>
+    </g>
+    <g filter="url(#shadow)" text-anchor="middle">
+      <text x="330" y="750" font-family="Georgia, 'Times New Roman', serif" font-size="560" fill="url(#silver)">A</text>
+      <text x="487" y="806" font-family="Georgia, 'Times New Roman', serif" font-size="520" fill="url(#silver)">S</text>
+      <path d="M365 362L445 710" stroke="url(#ice)" stroke-width="24" stroke-linecap="round" opacity=".9"/>
+    </g>
+  </g>
+
+  <g text-anchor="middle" fill="url(#silver)" filter="url(#shadow)">
+    <text x="700" y="990" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-style="italic" letter-spacing="4">Mis XV años</text>
+    <text x="700" y="1240" font-family="Georgia, 'Times New Roman', serif" font-size="205" letter-spacing="-4">Alexia Sarahí</text>
+  </g>
+
+  <g transform="translate(0 1385)" stroke="url(#silver)" stroke-linecap="round" filter="url(#glow)">
+    <path d="M255 70H645M755 70h390" stroke-width="5"/>
+    <path d="M700 10l13 47 47 13-47 13-13 47-13-47-47-13 47-13z" fill="#fff" stroke="none"/>
+    <circle cx="620" cy="70" r="6" fill="#d8efff" stroke="none"/>
+    <circle cx="780" cy="70" r="6" fill="#d8efff" stroke="none"/>
+  </g>
+</svg>

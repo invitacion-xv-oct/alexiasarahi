@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 180" role="img" aria-labelledby="title">
+  <title id="title">Divisor plateado con estrella</title>
+  <defs>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8c9bb2" stop-opacity="0"/>
+      <stop offset=".18" stop-color="#f9fcff"/>
+      <stop offset=".5" stop-color="#9ecfff"/>
+      <stop offset=".82" stop-color="#f9fcff"/>
+      <stop offset="1" stop-color="#8c9bb2" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M80 90H515M685 90h435" stroke="url(#silver)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M600 12l16 62 62 16-62 16-16 62-16-62-62-16 62-16z" fill="#fff" filter="url(#glow)"/>
+  <circle cx="490" cy="90" r="7" fill="#d8efff"/>
+  <circle cx="710" cy="90" r="7" fill="#d8efff"/>
+</svg>

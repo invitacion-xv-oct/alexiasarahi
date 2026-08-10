@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Ubicación">
+<defs><radialGradient id="bg"><stop stop-color="#123b7a"/><stop offset="1" stop-color="#061c48"/></radialGradient><linearGradient id="s"><stop stop-color="#fff"/><stop offset=".5" stop-color="#9fd7ff"/><stop offset="1" stop-color="#8897b3"/></linearGradient></defs><circle cx="128" cy="128" r="116" fill="url(#bg)" stroke="url(#s)" stroke-width="6"/><circle cx="128" cy="128" r="104" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+<path d="M128 211s64-59 64-112a64 64 0 10-128 0c0 53 64 112 64 112z" fill="none" stroke="url(#s)" stroke-width="9" stroke-linejoin="round"/><circle cx="128" cy="99" r="24" fill="none" stroke="url(#s)" stroke-width="9"/>
+</svg>
