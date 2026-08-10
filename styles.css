@@ -228,6 +228,7 @@ time { font-style: normal; }
 #padres {
   position: relative;
   padding: var(--section-py) 0;
+  background-image: url('./images/back-white.jpeg');
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;background: var(--pearl);
