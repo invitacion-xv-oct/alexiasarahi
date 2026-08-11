@@ -89,7 +89,7 @@
     const m = Math.floor((totalSec % 3600)  / 60);
     const s = totalSec % 60;
 
-    elDays.textContent = pad(d, 3);
+    elDays.textContent = pad(d, 2);
     elHrs.textContent  = pad(h, 2);
     elMin.textContent  = pad(m, 2);
     elSec.textContent  = pad(s, 2);
