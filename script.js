@@ -77,7 +77,7 @@
   function tick() {
     const diff = TARGET - Date.now();
     if (diff <= 0) {
-      elDays.textContent = '000';
+      elDays.textContent = '00';
       elHrs.textContent  = '00';
       elMin.textContent  = '00';
       elSec.textContent  = '00';
@@ -128,7 +128,7 @@
   if (!input || !btnWa) return;
 
   const BASE_MSG = 'Hola Alexia, confirmo mi asistencia y la de mi familia a tus XV años el 10 de octubre, en total seremos: ';
-  const PHONE    = '5527367255';
+  const PHONE    = '5567680474';
 
   function buildUrl() {
     const n = Math.max(1, parseInt(input.value, 10) || 1);
