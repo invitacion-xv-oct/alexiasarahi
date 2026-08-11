@@ -676,6 +676,59 @@ time { font-style: normal; }
   display: block;
   margin: 0 auto 1rem;
 }
+.confirmar-input-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.8rem;
+}
+.confirmar-label {
+  font-family: var(--ff-body);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--silver-dim);
+}
+.confirmar-counter {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1.5px solid rgba(194,208,228,0.25);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.counter-btn {
+  width: 44px;
+  height: 50px;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  color: var(--silver);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.counter-btn:hover { background: rgba(255,255,255,0.12); }
+.counter-btn:active { background: rgba(255,255,255,0.18); }
+.confirmar-input {
+  width: 72px;
+  height: 50px;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  border: none;
+  border-left: 1px solid rgba(194,208,228,0.18);
+  border-right: 1px solid rgba(194,208,228,0.18);
+  font-family: var(--ff-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  outline: none;
+  -moz-appearance: textfield;
+}
+.confirmar-input::-webkit-outer-spin-button,
+.confirmar-input::-webkit-inner-spin-button { -webkit-appearance: none; }
 .confirmar-title {
   font-family: var(--ff-title);
   font-size: clamp(1.1rem, 4.5vw, 1.5rem);
