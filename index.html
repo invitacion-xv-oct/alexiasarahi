@@ -95,8 +95,8 @@
           <h3>Ceremonia</h3>
           <div class="horario-divider" aria-hidden="true">✦</div>
           <time datetime="2026-10-10T18:00">6:00 PM</time>
-          <!-- ⚠️ REEMPLAZA con la URL de Google Maps de la iglesia -->
-          <a href="#" class="btn-mapa" target="_blank" rel="noopener">
+          <p class="horario-venue">Parroquia de Nuestra Señora<br>de la Candelaria de Ozumbilla</p>
+          <a href="https://www.google.com/maps/place/Parroquia+de+Nuestra+Se%C3%B1ora+de+la+Candelaria+de+Ozumbilla/@19.6776575,-98.9970797,822m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85d1ed766d23b607:0xeddbb0d35fe4e47b!8m2!3d19.6776575!4d-98.9970797!16s%2Fg%2F1tdcxfd6" class="btn-mapa" target="_blank" rel="noopener">
             <i class="fas fa-location-dot" aria-hidden="true"></i>
             VER MAPA
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -203,8 +203,16 @@
     <div class="section-inner fade-in">
       <img src="./images/sobre-magico.svg" class="section-svg-icon confirmar-svg-icon" alt="" aria-hidden="true">
       <h2 class="confirmar-title">Confirma tu asistencia</h2>
-      <!-- ⚠️  REEMPLAZA 521XXXXXXXXXX con tu número de WhatsApp (código de país + número, sin +, sin espacios) -->
-      <a href="https://wa.me/5527367255?text=Hola%20Alexia%2C%20confirmo%20mi%20asistencia%20a%20tus%20XV%20a%C3%B1os%20el%2010%20de%20octubre"
+      <div class="confirmar-input-wrap">
+        <label for="num-asistentes" class="confirmar-label">¿Cuántos asistirán?</label>
+        <div class="confirmar-counter">
+          <button class="counter-btn" id="btn-menos" aria-label="Restar uno" type="button">−</button>
+          <input type="number" id="num-asistentes" class="confirmar-input"
+                 min="1" max="30" value="1" aria-label="Número de asistentes">
+          <button class="counter-btn" id="btn-mas" aria-label="Sumar uno" type="button">+</button>
+        </div>
+      </div>
+      <a href="#" id="btn-confirmar-wa"
          target="_blank" rel="noopener"
          class="btn-outline btn-wa">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
