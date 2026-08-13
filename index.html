@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis XV Años · Alexia Sarahí · 10 Octubre 2026</title>
   <meta name="description" content="Invitación a los XV años de Alexia Sarahí — 10 de Octubre de 2026">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
   <meta property="og:title" content="Mis XV Años · Alexia Sarahí">
   <meta property="og:description" content="Estás invitado a celebrar mis XV años el 10 de Octubre 2026">
   <meta property="og:url"         content="https://invitacion-xv-oct.github.io/alexiasarahi">
@@ -102,7 +104,7 @@
           <img src="./images/iglesia.svg" class="horario-svg-icon" alt="" aria-hidden="true">
           <h3>Ceremonia</h3>
           <div class="horario-divider" aria-hidden="true">✦</div>
-          <time datetime="2026-10-10T18:00">6:00 PM</time>
+          <time datetime="2026-10-10T19:00">7:00 – 8:00 PM</time>
           <p class="horario-venue">Parroquia de Nuestra Señora<br>de la Candelaria de Ozumbilla</p>
           <a href="https://www.google.com/maps/place/Parroquia+de+Nuestra+Se%C3%B1ora+de+la+Candelaria+de+Ozumbilla/@19.6776575,-98.9970797,822m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85d1ed766d23b607:0xeddbb0d35fe4e47b!8m2!3d19.6776575!4d-98.9970797!16s%2Fg%2F1tdcxfd6" class="btn-mapa" target="_blank" rel="noopener">
             <i class="fas fa-location-dot" aria-hidden="true"></i>
@@ -116,7 +118,7 @@
           <img src="./images/brindis.svg" class="horario-svg-icon" alt="" aria-hidden="true">
           <h3>Recepción</h3>
           <div class="horario-divider" aria-hidden="true">✦</div>
-          <time datetime="2026-10-10T20:30">8:30 PM</time>
+          <time datetime="2026-10-10T21:00">9:00 – 9:30 PM</time>
           <p class="horario-venue">Salón Royal Gold</p>
           <p class="horario-city">Ozumba</p>
           <a href="https://www.google.com/maps/place/Salon+Royal+Gold/@19.6012861,-99.0128071,823m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85d1ee152b9249f7:0x5f270c15e92f43ae!8m2!3d19.6012861!4d-99.0128071!16s%2Fg%2F11f3c7fc5p"
@@ -140,13 +142,13 @@
       <div class="timeline" role="list">
         <div class="tl-item fade-in" role="listitem">
           <img src="./images/iglesia.svg" class="tl-icon-svg" aria-hidden="true">
-          <time class="tl-time">6:00 PM</time>
+          <time class="tl-time">7:00 PM</time>
           <span class="tl-event">Misa</span>
         </div>
         <div class="tl-connector" aria-hidden="true"></div>
         <div class="tl-item fade-in" role="listitem">
           <img src="./images/brindis.svg" class="tl-icon-svg" aria-hidden="true">
-          <time class="tl-time">8:30 PM</time>
+          <time class="tl-time">9:00 PM</time>
           <span class="tl-event">Recepción</span>
         </div>
         <div class="tl-connector" aria-hidden="true"></div>
@@ -210,15 +212,6 @@
     <div class="section-inner fade-in">
       <img src="./images/sobre-magico.svg" class="section-svg-icon confirmar-svg-icon" alt="" aria-hidden="true">
       <h2 class="confirmar-title">Confirma tu asistencia</h2>
-      <div class="confirmar-input-wrap">
-        <label for="num-asistentes" class="confirmar-label">¿Cuántos asistirán?</label>
-        <div class="confirmar-counter">
-          <button class="counter-btn" id="btn-menos" aria-label="Restar uno" type="button">−</button>
-          <input type="number" id="num-asistentes" class="confirmar-input"
-                 min="1" max="30" value="1" aria-label="Número de asistentes">
-          <button class="counter-btn" id="btn-mas" aria-label="Sumar uno" type="button">+</button>
-        </div>
-      </div>
       <a href="#" id="btn-confirmar-wa"
          target="_blank" rel="noopener"
          class="btn-outline btn-wa">
@@ -238,6 +231,15 @@
     <p class="footer-text">Gracias por ser parte de mis XV años<br>y crear recuerdos inolvidables.</p>
     <p class="footer-sig">Alexia Sarahí · 10 · X · 2026</p>
   </footer>
+
+  <!-- Reproductor de música flotante -->
+  <audio id="bg-audio" loop preload="none">
+    <source src="./audio/audio.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="btn-music" class="btn-music" aria-label="Reproducir música" title="Música">
+    <i class="fas fa-music" aria-hidden="true"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>
