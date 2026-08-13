@@ -150,28 +150,36 @@
 
   function tryPlay() { audio.play().catch(() => {}); }
 
-  // Intento de autoplay al cargar (funciona en desktop)
+  // Intento de autoplay al cargar (funciona en desktop sin restricciones)
   tryPlay();
 
-  // Desbloqueo en primer gesto del usuario (mobile iOS/Android)
-  // touchstart es el evento más confiable en Safari/Chrome mobile
   let unlocked = false;
-  function onUnlock(e) {
+
+  function unlock(e) {
     if (unlocked) return;
     if (btn.contains(e.target)) return; // el botón se maneja solo
     unlocked = true;
     tryPlay();
-    document.removeEventListener('touchstart', onUnlock);
-    document.removeEventListener('click',      onUnlock);
+    removeUnlockListeners();
   }
-  document.addEventListener('touchstart', onUnlock, { passive: true });
-  document.addEventListener('click',      onUnlock);
+
+  function removeUnlockListeners() {
+    document.removeEventListener('touchstart',  unlock);
+    document.removeEventListener('pointerdown', unlock);
+    window.removeEventListener('click',         unlock);
+  }
+
+  // touchstart  — iOS Safari (el más confiable en iPhone/iPad)
+  document.addEventListener('touchstart',  unlock, { passive: true });
+  // pointerdown — Android Chrome y otros navegadores mobile
+  document.addEventListener('pointerdown', unlock);
+  // click en window — fallback para cualquier otro caso
+  window.addEventListener('click', unlock);
 
   // Botón play/pause
   btn.addEventListener('click', () => {
     unlocked = true;
-    document.removeEventListener('touchstart', onUnlock);
-    document.removeEventListener('click',      onUnlock);
+    removeUnlockListeners();
     if (audio.paused) tryPlay(); else audio.pause();
   });
 })();
