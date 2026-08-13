@@ -134,45 +134,38 @@
 (function initMusic() {
   const audio = document.getElementById('bg-audio');
   const btn   = document.getElementById('btn-music');
-  const icon  = btn.querySelector('i');
-  if (!audio || !btn) return;
+  const icon  = btn ? btn.querySelector('i') : null;
+  if (!audio || !btn || !icon) return;
 
-  function setPlaying(playing) {
-    if (playing) {
-      icon.className = 'fas fa-pause';
-      btn.classList.add('playing');
-      btn.setAttribute('aria-label', 'Pausar música');
-    } else {
-      icon.className = 'fas fa-music';
-      btn.classList.remove('playing');
-      btn.setAttribute('aria-label', 'Reproducir música');
-    }
-  }
-
-  function startAudio() {
-    audio.play().then(() => setPlaying(true)).catch(() => {});
-  }
-
-  // Intenta autoplay al cargar
-  audio.play().then(() => {
-    setPlaying(true);
-  }).catch(() => {
-    // El navegador bloqueó el autoplay: arranca en el primer toque
-    const unlock = () => {
-      startAudio();
-      document.removeEventListener('click', unlock);
-      document.removeEventListener('touchstart', unlock);
-      document.removeEventListener('keydown', unlock);
-    };
-    document.addEventListener('click', unlock, { once: true });
-    document.addEventListener('touchstart', unlock, { once: true });
-    document.addEventListener('keydown', unlock, { once: true });
+  // El estado del ícono siempre sigue al audio real
+  audio.addEventListener('play',  () => {
+    icon.className = 'fas fa-pause';
+    btn.classList.add('playing');
+    btn.setAttribute('aria-label', 'Pausar música');
+  });
+  audio.addEventListener('pause', () => {
+    icon.className = 'fas fa-music';
+    btn.classList.remove('playing');
+    btn.setAttribute('aria-label', 'Reproducir música');
   });
 
-  // Botón play/pause manual
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (audio.paused) { startAudio(); } else { audio.pause(); setPlaying(false); }
+  function tryPlay() { audio.play().catch(() => {}); }
+
+  // Intento de autoplay al cargar
+  tryPlay();
+
+  // Desbloqueo en primer toque/clic fuera del botón (mobile)
+  function onUnlock(e) {
+    if (btn.contains(e.target)) return; // el botón se maneja solo
+    tryPlay();
+    document.removeEventListener('pointerdown', onUnlock);
+  }
+  document.addEventListener('pointerdown', onUnlock);
+
+  // Botón play/pause
+  btn.addEventListener('click', () => {
+    document.removeEventListener('pointerdown', onUnlock); // ya no necesario
+    if (audio.paused) tryPlay(); else audio.pause();
   });
 })();
 
