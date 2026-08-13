@@ -753,6 +753,45 @@ time { font-style: normal; }
 .btn-wa .fab { font-size: 1.1rem; }
 
 /* ================================================================
+   BOTÓN MÚSICA FLOTANTE
+================================================================ */
+.btn-music {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(194, 208, 228, 0.3);
+  background: rgba(13, 31, 78, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--silver);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.btn-music:hover {
+  background: rgba(26, 52, 112, 0.95);
+  border-color: rgba(194, 208, 228, 0.55);
+  transform: scale(1.08);
+}
+.btn-music.playing {
+  border-color: var(--gold);
+  color: var(--gold);
+  animation: musicPulse 2s ease-in-out infinite;
+}
+@keyframes musicPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 0 0 rgba(200,169,110,0); }
+  50%       { box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 0 8px rgba(200,169,110,0); }
+}
+
+/* ================================================================
    9. FOOTER
 ================================================================ */
 #footer {
