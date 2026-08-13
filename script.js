@@ -137,18 +137,42 @@
   const icon  = btn.querySelector('i');
   if (!audio || !btn) return;
 
-  btn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
+  function setPlaying(playing) {
+    if (playing) {
       icon.className = 'fas fa-pause';
       btn.classList.add('playing');
       btn.setAttribute('aria-label', 'Pausar música');
     } else {
-      audio.pause();
       icon.className = 'fas fa-music';
       btn.classList.remove('playing');
       btn.setAttribute('aria-label', 'Reproducir música');
     }
+  }
+
+  function startAudio() {
+    audio.play().then(() => setPlaying(true)).catch(() => {});
+  }
+
+  // Intenta autoplay al cargar
+  audio.play().then(() => {
+    setPlaying(true);
+  }).catch(() => {
+    // El navegador bloqueó el autoplay: arranca en el primer toque
+    const unlock = () => {
+      startAudio();
+      document.removeEventListener('click', unlock);
+      document.removeEventListener('touchstart', unlock);
+      document.removeEventListener('keydown', unlock);
+    };
+    document.addEventListener('click', unlock, { once: true });
+    document.addEventListener('touchstart', unlock, { once: true });
+    document.addEventListener('keydown', unlock, { once: true });
+  });
+
+  // Botón play/pause manual
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (audio.paused) { startAudio(); } else { audio.pause(); setPlaying(false); }
   });
 })();
 
