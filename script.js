@@ -137,7 +137,6 @@
   const icon  = btn ? btn.querySelector('i') : null;
   if (!audio || !btn || !icon) return;
 
-  // El estado del ícono siempre sigue al audio real
   audio.addEventListener('play',  () => {
     icon.className = 'fas fa-pause';
     btn.classList.add('playing');
@@ -151,20 +150,28 @@
 
   function tryPlay() { audio.play().catch(() => {}); }
 
-  // Intento de autoplay al cargar
+  // Intento de autoplay al cargar (funciona en desktop)
   tryPlay();
 
-  // Desbloqueo en primer toque/clic fuera del botón (mobile)
+  // Desbloqueo en primer gesto del usuario (mobile iOS/Android)
+  // touchstart es el evento más confiable en Safari/Chrome mobile
+  let unlocked = false;
   function onUnlock(e) {
+    if (unlocked) return;
     if (btn.contains(e.target)) return; // el botón se maneja solo
+    unlocked = true;
     tryPlay();
-    document.removeEventListener('pointerdown', onUnlock);
+    document.removeEventListener('touchstart', onUnlock);
+    document.removeEventListener('click',      onUnlock);
   }
-  document.addEventListener('pointerdown', onUnlock);
+  document.addEventListener('touchstart', onUnlock, { passive: true });
+  document.addEventListener('click',      onUnlock);
 
   // Botón play/pause
   btn.addEventListener('click', () => {
-    document.removeEventListener('pointerdown', onUnlock); // ya no necesario
+    unlocked = true;
+    document.removeEventListener('touchstart', onUnlock);
+    document.removeEventListener('click',      onUnlock);
     if (audio.paused) tryPlay(); else audio.pause();
   });
 })();
