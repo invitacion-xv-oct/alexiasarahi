@@ -121,42 +121,38 @@
 
 /* ── 4. CONFIRMAR WHATSAPP ───────────────────────────────────── */
 (function initConfirmar() {
-  const input   = document.getElementById('num-asistentes');
-  const btnWa   = document.getElementById('btn-confirmar-wa');
-  const btnMas  = document.getElementById('btn-mas');
-  const btnMenos= document.getElementById('btn-menos');
-  if (!input || !btnWa) return;
+  const btnWa = document.getElementById('btn-confirmar-wa');
+  if (!btnWa) return;
 
-  const BASE_MSG = 'Hola Alexia, confirmo mi asistencia y la de mi familia a tus XV años el 10 de octubre, en total seremos: ';
-  const PHONE    = '5567680474';
+  const MSG   = 'Hola Alexia, confirmo mi asistencia a tus XV años el 10 de Octubre.';
+  const PHONE = '5567680474';
 
-  function buildUrl() {
-    const n = Math.max(1, parseInt(input.value, 10) || 1);
-    input.value = n;
-    return 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(BASE_MSG + n + ' personas');
-  }
-
-  function refresh() { btnWa.href = buildUrl(); }
-
-  btnWa.href = buildUrl();
-  input.addEventListener('input', refresh);
-  input.addEventListener('change', refresh);
-
-  if (btnMas) {
-    btnMas.addEventListener('click', () => {
-      const cur = parseInt(input.value, 10) || 1;
-      if (cur < 30) { input.value = cur + 1; refresh(); }
-    });
-  }
-  if (btnMenos) {
-    btnMenos.addEventListener('click', () => {
-      const cur = parseInt(input.value, 10) || 1;
-      if (cur > 1) { input.value = cur - 1; refresh(); }
-    });
-  }
+  btnWa.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(MSG);
 })();
 
-/* ── 5. STAGGERED TIMELINE ITEMS ─────────────────────────────── */
+/* ── 5. MÚSICA DE FONDO ──────────────────────────────────────── */
+(function initMusic() {
+  const audio = document.getElementById('bg-audio');
+  const btn   = document.getElementById('btn-music');
+  const icon  = btn.querySelector('i');
+  if (!audio || !btn) return;
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      icon.className = 'fas fa-pause';
+      btn.classList.add('playing');
+      btn.setAttribute('aria-label', 'Pausar música');
+    } else {
+      audio.pause();
+      icon.className = 'fas fa-music';
+      btn.classList.remove('playing');
+      btn.setAttribute('aria-label', 'Reproducir música');
+    }
+  });
+})();
+
+/* ── 6. STAGGERED TIMELINE ITEMS ─────────────────────────────── */
 (function initTimelineStagger() {
   const items = document.querySelectorAll('.tl-item');
   if (!items.length || !('IntersectionObserver' in window)) return;
