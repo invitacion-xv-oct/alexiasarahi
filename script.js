@@ -148,7 +148,9 @@
     btn.setAttribute('aria-label', 'Reproducir música');
   });
 
-  function tryPlay() { audio.play().catch(() => {}); }
+  function tryPlay() {
+    audio.play().catch(err => console.warn('Autoplay bloqueado:', err.message));
+  }
 
   // Intento de autoplay al cargar (funciona en desktop sin restricciones)
   tryPlay();
@@ -156,6 +158,7 @@
   let unlocked = false;
 
   function unlock(e) {
+    console.log('h')
     if (unlocked) return;
     if (btn.contains(e.target)) return; // el botón se maneja solo
     unlocked = true;
@@ -167,6 +170,7 @@
     document.removeEventListener('touchstart',  unlock);
     document.removeEventListener('pointerdown', unlock);
     window.removeEventListener('click',         unlock);
+    window.removeEventListener('scroll',        unlock);
   }
 
   // touchstart  — iOS Safari (el más confiable en iPhone/iPad)
@@ -175,6 +179,8 @@
   document.addEventListener('pointerdown', unlock);
   // click en window — fallback para cualquier otro caso
   window.addEventListener('click', unlock);
+  // scroll — en desktop, el scroll desbloquea el audio
+  window.addEventListener('scroll', unlock, { passive: true });
 
   // Botón play/pause
   btn.addEventListener('click', () => {
