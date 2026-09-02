@@ -79,6 +79,7 @@ time { font-style: normal; }
 }
 @media (prefers-reduced-motion: reduce) {
   .fade-in { opacity: 1; transform: none; transition: none; }
+  #hero::before { animation: none; transform: translateX(-14%) scale(1.08); }
 }
 
 /* ── BUTTONS ─────────────────────────────────────────────────── */
@@ -117,17 +118,31 @@ time { font-style: normal; }
   justify-content: center;
   overflow: hidden;
   padding-bottom: 4rem;
+  isolation: isolate;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: -4%;
+  z-index: 0;
   background-image:
     linear-gradient(to bottom, rgba(5,12,35,0.52) 0%, rgba(5,12,35,0.35) 50%, rgba(5,12,35,0.55) 100%),
-    url('./images/bakc-main.jpeg');
+    url('./images/main-mobile.jpeg');
   background-size: cover;
-  background-position: left center;
+  background-position: center center;
   background-repeat: no-repeat;
+}
+
+@keyframes heroPan {
+  from { transform: translateX(-14%) scale(1.08); }
+  to   { transform: translateX(0) scale(1.08); }
 }
 
 #starsCanvas {
   position: absolute;
   inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -527,51 +542,21 @@ time { font-style: normal; }
    6. CÓDIGO DE VESTIMENTA
 ================================================================ */
 #vestimenta {
-  padding: var(--section-py) 1.5rem;
-  /* Split: left dark navy, right silk-blue effect */
-  background-image: url('./images/back-e.jpeg');
+  padding: 0;
+  background-image: url('./images/vestimenta.jpeg');
   background-size: cover;
-  background-position: top center;
+  background-position: center center;
   background-repeat: no-repeat;
+  aspect-ratio: 1600 / 833;
 }
 
-.vestimenta-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.6rem;
-  text-align: center;
-}
-
-.vestimenta-icon-col { display: flex; justify-content: center; }
-.vestimenta-svg-icon {
-  width: clamp(90px, 22vw, 120px);
-  height: auto;
-  filter: drop-shadow(0 0 18px rgba(194,208,228,0.3));
-}
-
-.vestimenta-text-col { display: flex; flex-direction: column; align-items: center; }
-.vestimenta-text-col .label-small {
-  color: var(--silver-dim);
-  margin-top: 0;
-}
-.vestimenta-tipo {
-  font-family: var(--ff-display);
-  font-size: clamp(1.8rem, 7vw, 2.6rem);
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.08em;
-  margin: 0.4rem 0;
-}
-.vestimenta-nota {
-  font-family: var(--ff-body);
-  font-size: 0.85rem;
-  font-style: italic;
-  font-weight: 300;
-  color: var(--silver-dim);
-  line-height: 1.7;
+#gracias {
+  padding: 0;
+  background-image: url('./images/gracias.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1599 / 682;
 }
 
 /* ================================================================
@@ -730,16 +715,6 @@ time { font-style: normal; }
   height: 1.45rem;
 }
 
-.gift-registry-button__arrow {
-  width: 1rem;
-  height: 1rem;
-  transition: transform 180ms ease;
-}
-
-.gift-registry-button:hover .gift-registry-button__arrow {
-  transform: translateX(3px);
-}
-
 .gift-registry-button__spark {
   position: absolute;
   z-index: 2;
@@ -781,7 +756,6 @@ time { font-style: normal; }
 
 @media (prefers-reduced-motion: reduce) {
   .gift-registry-button,
-  .gift-registry-button__arrow,
   .gift-registry-button__spark {
     animation: none;
     transition: none;
@@ -995,16 +969,6 @@ time { font-style: normal; }
     margin-top: 28px; /* align with center of 58px icon */
     align-self: flex-start;
   }
-
-  /* Vestimenta side by side */
-  .vestimenta-inner {
-    flex-direction: row;
-    justify-content: center;
-    gap: 3rem;
-    text-align: left;
-  }
-  .vestimenta-text-col { align-items: flex-start; }
-  .vestimenta-text-col .label-small { margin-top: 0; }
 }
 
 @media (min-width: 768px) {
@@ -1012,4 +976,12 @@ time { font-style: normal; }
   .hero-silhouette { width: 240px; }
   .location-card { flex-direction: row; justify-content: space-between; text-align: left; }
   .location-card .location-top { flex: 1; }
+
+  /* Hero background — desktop: imagen principal con pan sutil izquierda → centro */
+  #hero::before {
+    background-image:
+      linear-gradient(to bottom, rgba(5,12,35,0.52) 0%, rgba(5,12,35,0.35) 50%, rgba(5,12,35,0.55) 100%),
+      url('./images/main.jpeg');
+    background-position: center center;
+  }
 }
